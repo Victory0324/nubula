@@ -1,0 +1,10 @@
+image: cimg/node:18.18-browsers
+
+pipelines:
+  default:
+    - parallel:
+        - step:
+            name: e2e test
+            script:
+              - yarn install
+              - yarn test:e2e

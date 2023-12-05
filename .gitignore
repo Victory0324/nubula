@@ -1,0 +1,38 @@
+# Ignore Next.js build and server directories
+.next/
+out/
+.next/*
+
+
+
+# Ignore node_modules directory
+node_modules/
+
+# Ignore development environment files
+# .env*
+
+# Ignore build artifacts
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Ignore TypeScript build artifacts
+*.tsbuildinfo
+
+# Ignore macOS system files
+.DS_Store
+
+# Ignore editor-specific files
+.vscode/
+*.code-workspace
+
+# Ignore npm lock files
+package-lock.json
+
+# Ignore build output of other tools (e.g., webpack)
+/dist/
+
+
+# Sentry Auth Token
+.sentryclirc

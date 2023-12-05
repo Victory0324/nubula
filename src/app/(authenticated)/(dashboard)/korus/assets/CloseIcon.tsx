@@ -1,0 +1,18 @@
+const CloseIcon = () => (
+  <svg
+    width='30'
+    height='31'
+    viewBox='0 0 30 31'
+    fill='none'
+    xmlns='http://www.w3.org/2000/svg'
+  >
+    <path
+      fillRule='evenodd'
+      clipRule='evenodd'
+      d='M6.25 6.75H8.75V9.25H6.25V6.75ZM11.25 11.75H8.75V9.25H11.25V11.75ZM13.75 14.25H11.25V11.75H13.75V14.25ZM16.25 14.25H13.75V16.75H11.25V19.25H8.75V21.75H6.25V24.25H8.75V21.75H11.25V19.25H13.75V16.75H16.25V19.25H18.75V21.75H21.25V24.25H23.75V21.75H21.25V19.25H18.75V16.75H16.25V14.25ZM18.75 11.75V14.25H16.25V11.75H18.75ZM21.25 9.25V11.75H18.75V9.25H21.25ZM21.25 9.25V6.75H23.75V9.25H21.25Z'
+      fill='white'
+    />
+  </svg>
+);
+
+export default CloseIcon;

@@ -1,0 +1,424 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'ABCFavoritExtended';
+  src: url('../../public/fonts/ABCFavoritExtended-Light.otf');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'ABCFavorit';
+  src: url('../../public/fonts/ABCFavoritExtended-Regular.otf');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'ABCFavorit';
+  src: url('../../public/fonts/ABCFavoritExtended-Medium.otf');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'ABCFavoritExtended';
+  src: url('../../public/fonts/ABCFavoritExtended-Bold.otf');
+  font-weight: bold;
+}
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  font-family: 'ABCFavoritExtended', sans-serif;
+  background: #101317;
+}
+
+@layer components {
+  .btn {
+    @apply transition-colors disabled:btn-disabled hover:cursor-pointer px-5 py-2.5;
+  }
+
+  .btn-pinched-br {
+    @apply rounded-2xl rounded-br-none
+  }
+
+  .btn-pinched-tl {
+    @apply rounded-2xl rounded-tl-none
+  }
+
+  .btn-pinched-tr {
+    @apply rounded-2xl rounded-tr-none
+  }
+
+  .btn-pinched-bl {
+    @apply rounded-2xl rounded-bl-none
+  }
+
+  .btn-secondary {
+    @apply cursor-pointer text-white border border-purple-9a bg-purple-9a/10 hover:bg-purple-9a/25 focus:bg-purple-9a/50 disabled:btn-disabled font-bold transition-colors;
+  }
+
+  .btn-secondary-pink {
+    @apply cursor-pointer text-white border border-pink-ff bg-pink-ff hover:bg-pink-ff/75 disabled:btn-disabled font-bold  transition-colors;
+  }
+
+  .btn-primary {
+    @apply ease-in-out cursor-pointer disabled:btn-disabled bg-gradient-to-l from-purple-5f to-purple-9a font-bold hover:bg-gradient-to-b transition;
+  }
+
+  .btn-disabled {
+    @apply border border-gray-999 text-gray-999 bg-none hover:text-gray-999 hover:bg-none hover:disabled:cursor-not-allowed;
+  }
+
+  .pill {
+    @apply border border-purple-9a rounded-full py-2 px-4;
+  }
+}
+
+@layer utilities {
+  .hover-purple {
+    @apply hover:text-purple-9a transition-colors hover:cursor-pointer hover:disabled:cursor-not-allowed;
+  }
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .no-scrollbar {
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+    }
+
+    .noselect {
+      -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+      -khtml-user-select: none; /* Konqueror HTML */
+      -moz-user-select: none; /* Old versions of Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+      user-select: none; /* Non-prefixed version, currently
+                                      supported by Chrome, Edge, Opera and Firefox */
+    }
+
+    .gradient-mask-bottom-to-top {
+       mask-image: linear-gradient(to bottom, black calc(100% - 48px), transparent 100%);
+    }
+
+    .grid-mask {
+      position: relative;
+    }
+
+    .grid-mask::before {
+      content: "";
+      background-color: #101317;
+      position: absolute;
+      z-index: 10;
+      top: 0;
+      right: -1px;
+      width: 1px;
+      height: 100%;
+    }
+    .grid-mask::after {
+      content: "";
+      /* #9A6AFF */
+      background-color: rgba(154,106,255, 0.1);
+      position: absolute;
+      z-index: 10;
+      top: 0;
+      right: -1px;
+      width: 1px;
+      height: 100%;
+    }
+
+    .login-corner::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      display: block;
+      width: 15px;
+      height: 15px;
+      border: 1px solid;
+    }
+
+    .login-corner--left::before {
+      left: 100%;
+      border-radius: 0 0 0 12px;
+      border-color: transparent transparent rgba(255,255,255,0.8) rgba(255,255,255,0.8);
+      box-shadow: -4px 4px 0 3px #000;
+    }
+
+    .login-corner--right::before {
+      right: 100%;
+      border-radius: 0 0 12px 0;
+      border-color: transparent rgba(255,255,255,0.8) rgba(255,255,255,0.8) transparent;
+      box-shadow: 4px 4px 0 3px #000;
+    }
+
+    .the-corner-hide {
+      border-color: transparent;
+    }
+
+    .the-corner::before, .the-corner::after {
+      content: '';
+      display: block;
+      width: 30px;
+      height: 30px;
+      background-color: transparent;
+      position: absolute;
+      border: 1px solid;
+    }
+
+    @media (min-width: 1024px) {
+      .the-corner--desktop-logo::before, .the-corner--desktop-logo::after {
+        content: '';
+        display: block;
+        width: 30px;
+        height: 30px;
+        background-color: transparent;
+        position: absolute;
+        border: 1px solid;
+      }
+      .the-corner--desktop-logo::after {
+        border-radius: 20px 0 0 0;
+        border-color: #999 transparent transparent #999;
+        left: -1px;
+        box-shadow: -9px -9px 0px 0px #000;
+        top: 68px;
+        z-index: 15;
+      }
+
+      .the-corner--desktop-logo::before {
+        border-radius: 20px 0 0 0;
+        border-color: #999 transparent transparent #999;
+        left: 201px;
+        box-shadow: -9px -9px 0px 0px #000;
+        top: -1px;
+        z-index: 15;
+      }
+    }
+
+    .the-corner--top-bottom--left::before {
+      border-radius: 0 0 0 20px;
+      border-color: transparent transparent #999 #999;
+      box-shadow: -9px 9px 0px 0px #000;
+      bottom: 100%;
+      left: 0
+    }
+
+    .the-corner--top-bottom--left::after {
+      border-radius: 20px 0 0 0;
+      border-color: #999 transparent transparent #999;
+      left: 0px;
+      box-shadow: -9px -9px 0px 0px #000;
+      bottom: -30px
+    }
+
+    .the-corner--top-bottom--right::before {
+      border-radius: 0 0 20px 0;
+      border-color: transparent #999 #999 transparent;
+      box-shadow: 9px 9px 0px 0px #000;
+      right: 0px;
+      bottom: 100%;
+    }
+
+    .the-corner--top-bottom--right::after {
+      border-radius: 0 20px 0 0;
+      border-color: #999 #999 transparent transparent;
+      box-shadow: 9px -9px 0px 0px #000;
+      right: 0px;
+      bottom: -30px;
+    }
+
+    .the-corner--button-wrap--left::before {
+      border-radius: 0 0 0 20px;
+      border-color: transparent transparent #999 #999;
+      box-shadow: -9px 9px 0px 0px #000;
+      bottom: 100%;
+      left: 0px;
+    }
+
+    .the-corner--button-wrap--left::after {
+      border-radius: 0 0 0 20px;
+      border-color: transparent transparent #999 #999;
+      left: 100%;
+      bottom: 0px;
+      box-shadow: -10px 10px 0px 0px #000;
+    }
+
+    .the-corner--button-wrap--right::before {
+      border-radius: 0 0 20px 0;
+      border-color: transparent #999 #999 transparent;
+      box-shadow: 9px 9px 0px 0px #000;
+      right: 0px;
+      bottom: 100%;
+    }
+
+    .the-corner--button-wrap--right::after {
+      border-radius: 0 0 20px 0;
+      border-color: transparent #999 #999 transparent;
+      box-shadow: 10px 10px 0px 0px #000;
+      right: 100%;
+      bottom: 0px;
+    }
+
+    .logo-border-left::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      width: 3px;
+      height: 68px;
+      border: 3px solid;
+      border-color: #000;
+
+      top: 0;
+      left: -3px;
+      border-radius: 0 0 0 0;
+    }
+
+    .logo-border-top::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      width: 202px;
+      height: 1px;
+      border: 2px solid;
+      border-color: black;
+      top: -1px;
+      left: -1px;
+      border-radius: 0 0 0 0;
+    }
+
+    .header-logo {
+      margin-right: -2px;
+    }
+
+    .header-logo::before, .header-logo::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      width: 25px;
+      height: 25px;
+      border: 1px solid;
+      border-color: #999 transparent transparent #999;
+      box-shadow: -7px -7px 0 1px #000;
+    }
+
+    .header-logo::before {
+      top: 68px;
+      left: -2px;
+      border-radius: 14px 0 0 0;
+    }
+
+    .header-logo::after {
+      top: 0;
+      left: 201px;
+      border-radius: 14px 0 0 0;
+    }
+
+
+  @layer utilities {
+    .glow {
+      text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff,
+        0 0 42px theme('colors.purple.9a'), 0 0 82px theme('colors.purple.9a'),
+        0 0 92px theme('colors.purple.9a');
+
+      animation: glowing 1.5s ease-in-out infinite;
+    }
+
+    @keyframes glowing {
+      0%,
+      100% {
+        text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff,
+          0 0 42px theme('colors.purple.9a'),
+          0 0 82px theme('colors.purple.9a'),
+          0 0 92px theme('colors.purple.9a');
+      }
+      50% {
+        /* Define the intermediate keyframe with a different glow size */
+        text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 18px #fff,
+          0 0 34px theme('colors.tiffany.9e');
+      }
+    }
+
+    @keyframes fade {
+      0%, 100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0;
+      }
+    }
+
+
+    .gradient-animate {
+      background-size: 400% 400%;
+	    animation: gradient 20s ease infinite;
+    }
+
+    @keyframes gradient {
+    	0% {
+    		background-position: 0% 50%;
+    	}
+    	50% {
+    		background-position: 100% 50%;
+    	}
+    	100% {
+    		background-position: 0% 50%;
+    	}
+    }
+  }
+
+  .btn-burger {
+      width: 24px;
+      height: 24px;
+      position: relative;
+      cursor: pointer;
+      transition: opacity 0.3s;
+  }
+
+  .btn-burger::before, .btn-burger::after {
+      content: '';
+      display: block;
+      position: absolute;
+      height: 2px;
+      background-color: #fff;
+      top: 50%;
+      /* left: 50%;
+      margin-left: -10px; */
+      transition: transform 0.3s, margin 0.3s;
+      width: 24px;
+      transform-origin: center;
+  }
+
+  .btn-burger::before {
+    margin-top: -6px;
+  }
+
+  .btn-burger::after {
+    margin-top: 3px;
+  }
+
+  .cross.btn-burger::before {
+    transform: rotate(30deg);
+    margin-top: 0px;
+  }
+
+  .cross.btn-burger::after {
+    margin-top: 0;
+    transform: rotate(-30deg);
+  }
+
+  .nebula-point:hover {
+    cursor: pointer;
+  }
+
+  .top-unset {
+    top: unset;
+  }
+}

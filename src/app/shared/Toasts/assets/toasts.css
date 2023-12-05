@@ -1,0 +1,8 @@
+.Toastify__toast-theme--dark {
+  @apply bg-transparent ml-[52px] mb-0;
+}
+:root {
+  /* important is needed because of https://github.com/vercel/next.js/issues/51030 */
+  --toastify-toast-width: auto !important;
+  --toastify-z-index: 2147483647;
+}
